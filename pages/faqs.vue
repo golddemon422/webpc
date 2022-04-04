@@ -3,9 +3,11 @@
     <div class="header">
       <ul class="top-header">
         <li class="Logo">
-          <img src="../assets/img/Launch-App.png" alt="" />
+          <img src="~/assets/img/logo.png" alt="" />
         </li>
-        <li class="projectName">HERESY.DAO</li>
+        <li class="projectName">
+          <nuxt-link class="faqsword" to="/">HERESY.DAO</nuxt-link>
+        </li>
         <li>
           <nuxt-link class="faqsword" to="/">HOME</nuxt-link>
         </li>
@@ -19,10 +21,10 @@
         <li class="medium">
           <div class="icons">
             <p @click="jumpTelegram()">
-              <img src="../assets/img/tg-idle-1.png" alt="" />
+              <img src="~/assets/img/tg-idle-1.png" alt="" />
             </p>
             <p @click="jumpTwitter()">
-              <img src="../assets/img/Twitter-Idle.png" alt="" />
+              <img src="~/assets/img/Twitter-Idle.png" alt="" />
             </p>
           </div>
           <div>Buy HERESY now on Pancakeswap</div>
@@ -31,7 +33,11 @@
     </div>
     <ul class="mainbox">
       <li v-for="item in FAQLIST" :key="item.ID">
-        <div class="FAQ-tip" @click="Faqshow(item)">{{ item.FAQ }}</div>
+        <div class="FAQ-tip" @click="Faqshow(item)">
+          <p class="arrow" v-if="item.isarrow">&#9650;</p>
+          <p class="arrow" v-else>&#9660;</p>
+          <p>{{ item.FAQ }}</p>
+        </div>
         <div class="ans" v-if="item.isshow">{{ item.ANS }}</div>
       </li>
     </ul>
@@ -45,10 +51,10 @@ export default {
       change: true,
       activeid: "1",
       FAQLIST: [
-        { ID: "1", FAQ: "aaa", ANS: "1234567", isshow: false },
-        { ID: "2", FAQ: "aaa", ANS: "1234567", isshow: false },
-        { ID: "3", FAQ: "aaa", ANS: "1234567", isshow: false },
-        { ID: "4", FAQ: "aaa", ANS: "1234567", isshow: false },
+        { ID: "1", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
+        { ID: "2", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
+        { ID: "3", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
+        { ID: "4", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
       ],
     };
   },
@@ -57,8 +63,10 @@ export default {
       this.FAQLIST.forEach((val) => {
         if (val.ID == item.ID) {
           val.isshow = true;
+          val.isarrow = false;
         } else {
           val.isshow = false;
+          val.isarrow = true;
         }
       });
     },
@@ -107,12 +115,13 @@ export default {
 }
 
 .Logo img {
-  width: 120px;
-  height: 60px;
+  width: auto;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .projectName {
   height: 70px;
@@ -168,8 +177,12 @@ export default {
   margin: 0;
   padding: 0;
   width: auto;
-  height: calc(100vh - 132px);
+  height: 100vh;
   list-style: none;
+  background-image: url("../assets/img/bg3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
 }
 .mainbox li {
   width: auto;
@@ -189,6 +202,11 @@ export default {
   height: 20px;
   cursor: pointer;
   padding: 20px;
+  display: flex;
+}
+
+.arrow {
+  margin-right: 10px;
 }
 
 .ans {

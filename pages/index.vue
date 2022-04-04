@@ -3,9 +3,11 @@
     <div class="header">
       <ul class="top-header">
         <li class="Logo">
-          <img src="../assets/img/Launch-App.png" alt="" />
+          <img src="~/assets/img/logo.png" alt="" />
         </li>
-        <li class="projectName">HERESY.DAO</li>
+        <li class="projectName">
+          <nuxt-link class="faqsword" to="/">HERESY.DAO</nuxt-link>
+        </li>
         <li @click="changeOne()">
           <nuxt-link class="faqsword" to="/">HOME</nuxt-link>
         </li>
@@ -17,10 +19,10 @@
         <li class="medium">
           <div class="icons">
             <p @click="jumpTelegram()">
-              <img src="../assets/img/tg-idle-1.png" alt="" />
+              <img src="~/assets/img/tg-idle-1.png" alt="" />
             </p>
             <p @click="jumpTwitter()">
-              <img src="../assets/img/Twitter-Idle.png" alt="" />
+              <img src="~/assets/img/Twitter-Idle.png" alt="" />
             </p>
           </div>
           <div>Buy HERESY now on Pancakeswap</div>
@@ -29,8 +31,10 @@
     </div>
     <!-- ===================== -->
     <div class="content">
-      <div class="main" v-if="change">1</div>
-      <div class="main" v-else>2</div>
+      <div class="main bgpicture1" v-if="change">
+        <!-- <img src="~/assets/img/bg1.png" alt=""> -->
+      </div>
+      <div class="main bgpicture2" v-else></div>
       <ul class="discbox">
         <li
           @click="changeOne()"
@@ -108,8 +112,8 @@ export default {
 }
 
 .Logo img {
-  width: 120px;
-  height: 60px;
+  width: auto;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +170,7 @@ export default {
 
 .content {
   width: 100%;
-  height: calc(100vh - 132px);
+  height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
@@ -176,18 +180,17 @@ export default {
 .main {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .discbox {
-  width: 50%;
-  height: 30px;
+  width: auto;
+  height: auto;
   list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #fff;
   position: absolute;
-  bottom: 30px;
+  left: 0;
+  bottom: 50%;
 }
 .discbox li {
   width: 10px;
@@ -196,8 +199,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(299, 299, 299, 0.5);
-  margin-right: 15px;
+  border: 1px solid rgba(299, 299, 299, 0.9);
+  margin-bottom: 15px;
   cursor: pointer;
 }
 .changeColor {
@@ -209,5 +212,18 @@ export default {
   align-items: center;
   border: 1px solid rgba(299, 299, 299, 0.5);
   background-color: #901717;
+}
+
+.bgpicture1 {
+  background-image: url("../assets/img/bg4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+.bgpicture2 {
+  background-image: url("../assets/img/bg1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
 }
 </style>
