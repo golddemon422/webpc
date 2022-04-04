@@ -122,7 +122,6 @@ export default {
   align-items: center;
 }
 
-
 .projectName {
   height: 70px;
   font-size: 36px;
@@ -182,7 +181,7 @@ export default {
   background-image: url("../assets/img/bg3.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position:center;
+  background-position: center;
 }
 .mainbox li {
   width: auto;

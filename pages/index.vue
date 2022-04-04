@@ -31,10 +31,8 @@
     </div>
     <!-- ===================== -->
     <div class="content">
-      <div class="main bgpicture1" v-if="change">
-        <!-- <img src="~/assets/img/bg1.png" alt=""> -->
-      </div>
-      <div class="main bgpicture2" v-else></div>
+      <div class="main bgpicture1" v-show="showPic1"></div>
+      <div class="main bgpicture2" v-show="showPic2"></div>
       <ul class="discbox">
         <li
           @click="changeOne()"
@@ -54,17 +52,20 @@ export default {
   name: "index",
   data() {
     return {
-      change: true,
+      showPic1: true,
+      showPic2: false,
       activeid: "1",
     };
   },
   methods: {
     changeOne() {
-      this.change = true;
+      this.showPic1 = true;
+      this.showPic2 = false;
       this.activeid = "1";
     },
     changeTwo() {
-      this.change = false;
+      this.showPic1 = false;
+      this.showPic2 = true;
       this.activeid = "2";
     },
     jumpTelegram() {
@@ -218,12 +219,12 @@ export default {
   background-image: url("../assets/img/bg4.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position:center;
+  background-position: center;
 }
 .bgpicture2 {
   background-image: url("../assets/img/bg1.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position:center;
+  background-position: center;
 }
 </style>
