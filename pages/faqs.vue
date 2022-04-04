@@ -51,7 +51,7 @@ export default {
       change: true,
       activeid: "1",
       FAQLIST: [
-        { ID: "1", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
+        { ID: "1", FAQ: "HERESY    DAO is what?", ANS: "HERESY DAO is DAO 2.0......", isshow: false, isarrow: true },
         { ID: "2", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
         { ID: "3", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
         { ID: "4", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
@@ -86,6 +86,12 @@ export default {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
+  background-image: url("../assets/img/bg3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
 }
 .header {
   width: 100%;
@@ -95,6 +101,10 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .top-header {
@@ -172,19 +182,20 @@ export default {
 }
 
 .mainbox {
-  width: 100%;
+  width: 33%;
+  height: 500px;
   margin: 0;
   padding: 0;
-  width: auto;
-  height: 100vh;
   list-style: none;
-  background-image: url("../assets/img/bg3.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  position: absolute;
+  margin: 20px;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .mainbox li {
-  width: auto;
+  width: 90%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -192,15 +203,17 @@ export default {
   align-items: center;
   color: #fff;
   font-size: 16px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1.5px dashed #777;
   padding: 0 50px;
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .FAQ-tip {
   width: 100%;
-  height: 20px;
+  height: auto;
   cursor: pointer;
-  padding: 20px;
+  padding: 2px;
   display: flex;
 }
 
@@ -211,6 +224,6 @@ export default {
 .ans {
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding: 2px;
 }
 </style>
