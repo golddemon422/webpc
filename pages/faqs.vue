@@ -51,7 +51,13 @@ export default {
       change: true,
       activeid: "1",
       FAQLIST: [
-        { ID: "1", FAQ: "HERESY    DAO is what?", ANS: "HERESY DAO is DAO 2.0......", isshow: false, isarrow: true },
+        {
+          ID: "1",
+          FAQ: "HERESY    DAO is what?",
+          ANS: "HERESY DAO is DAO 2.0......",
+          isshow: false,
+          isarrow: true,
+        },
         { ID: "2", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
         { ID: "3", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
         { ID: "4", FAQ: "aaa", ANS: "1234567", isshow: false, isarrow: true },
@@ -183,16 +189,18 @@ export default {
 
 .mainbox {
   width: 33%;
-  height: 500px;
+  height: 700px;
   margin: 0;
   padding: 0;
   list-style: none;
   position: absolute;
   margin: 20px;
-  top: 150px;
+  top: 200px;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 .mainbox li {
   width: 90%;
@@ -204,7 +212,7 @@ export default {
   color: #fff;
   font-size: 16px;
   border-bottom: 1.5px dashed #777;
-  padding: 0 50px;
+  padding: 0 0 0 20px;
   font-size: 16px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
